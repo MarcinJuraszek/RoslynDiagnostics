@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="RoslynDiagnostics..3231e3f3-d6d1-4db8-b0ef-72bbb92c40d1" Version="0.1" Language="en-US" Publisher="Marcin Juraszek" />
+    <DisplayName>RoslynDiagnostics</DisplayName>
+    <Description xml:space="preserve">Roslyn based C# Diagnostics and CodeFixes </Description>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0.30110,13.0)" />
+    <InstallationTarget Version="[12.0.30110,13.0)" Id="Microsoft.VisualStudio.Ultimate" />
+    <InstallationTarget Version="[12.0.30110,13.0)" Id="Microsoft.VisualStudio.Pro" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+  </Dependencies>
+</PackageManifest>
