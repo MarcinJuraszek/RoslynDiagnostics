@@ -92,6 +92,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Braces\MissingBracesAnalyzer.cs" />
+    <Compile Include="Braces\MissingBracesFix.cs" />
     <Compile Include="CodeFixProvider.cs" />
     <Compile Include="DeclarationExpressions\OutArgumentDeclarationAnalyzer.cs" />
     <Compile Include="DeclarationExpressions\OutArgumentDeclarationFix.cs" />

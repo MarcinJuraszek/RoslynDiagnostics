@@ -12,14 +12,14 @@ using System.Threading.Tasks;
 namespace RoslynDiagnostics.DeclarationExpressions
 {
     [ExportCodeFixProvider(OutArgumentDeclarationAnalyzer.DiagnosticId, LanguageNames.CSharp)]
-    class OutArgumentDeclarationFix : ICodeFixProvider
+    class OutArgumentDeclarationFix : CodeFixProvider
     {
-        public IEnumerable<string> GetFixableDiagnosticIds()
+        public OutArgumentDeclarationFix()
+            : base(OutArgumentDeclarationAnalyzer.DiagnosticId)
         {
-            return new[] { OutArgumentDeclarationAnalyzer.DiagnosticId };
         }
 
-        public async Task<IEnumerable<CodeAction>> GetFixesAsync(Document document, TextSpan span, IEnumerable<Diagnostic> diagnostics, CancellationToken cancellationToken)
+        public async override Task<IEnumerable<CodeAction>> GetFixesAsync(Document document, TextSpan span, IEnumerable<Diagnostic> diagnostics, CancellationToken cancellationToken)
         {
             var root = await document.GetSyntaxRootAsync(cancellationToken);
             var diagnosticSpan = diagnostics.First().Location.SourceSpan;

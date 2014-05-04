@@ -3,7 +3,7 @@
   <Identifier Id="RoslynDiagnostics..b3e4d5bc-fff7-4ef0-811f-a8cf347eb6ee">
     <Name>RoslynDiagnostics</Name>
     <Author>Marcin Juraszek</Author>
-    <Version>0.1</Version>
+    <Version>0.2</Version>
     <Description xml:space="preserve">Roslyn based C# Diagnostics and CodeFixes Visual Studio Extension.</Description>
     <Locale>1033</Locale>
     <SupportedProducts>

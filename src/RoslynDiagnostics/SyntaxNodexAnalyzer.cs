@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Threading;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.Diagnostics;
+using System;
+using System.Collections.Immutable;
+using System.Threading;
 
 namespace RoslynDiagnostics
 {
