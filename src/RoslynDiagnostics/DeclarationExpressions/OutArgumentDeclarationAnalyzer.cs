@@ -11,7 +11,7 @@ namespace RoslynDiagnostics.DeclarationExpressions
 {
     [DiagnosticAnalyzer]
     [ExportDiagnosticAnalyzer(DiagnosticId, LanguageNames.CSharp)]
-    class OutArgumentDeclarationAnalyzer : SyntaxNodexAnalyzer
+    class OutArgumentDeclarationAnalyzer : SyntaxNodeAnalyzer
     {
         internal const string DiagnosticId = "DeclareUsingDeclarationExpression";
         internal const string Description = "Variable can be declared using Declaration Expression";

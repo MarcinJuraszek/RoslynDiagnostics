@@ -7,11 +7,11 @@ using System.Threading;
 
 namespace RoslynDiagnostics
 {
-    internal abstract class SyntaxNodexAnalyzer : ISyntaxNodeAnalyzer<SyntaxKind>
+    internal abstract class SyntaxNodeAnalyzer : ISyntaxNodeAnalyzer<SyntaxKind>
     {
         private DiagnosticDescriptor _rule;
 
-        internal SyntaxNodexAnalyzer(DiagnosticDescriptor rule, params SyntaxKind[] kindsOfInterest)
+        internal SyntaxNodeAnalyzer(DiagnosticDescriptor rule, params SyntaxKind[] kindsOfInterest)
         {
             _rule = rule;
             SyntaxKindsOfInterest = kindsOfInterest.ToImmutableArray();

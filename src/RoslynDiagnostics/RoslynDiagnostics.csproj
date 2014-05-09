@@ -97,7 +97,9 @@
     <Compile Include="CodeFixProvider.cs" />
     <Compile Include="DeclarationExpressions\OutArgumentDeclarationAnalyzer.cs" />
     <Compile Include="DeclarationExpressions\OutArgumentDeclarationFix.cs" />
-    <Compile Include="SyntaxNodexAnalyzer.cs" />
+    <Compile Include="Naming\AsyncMethodNameAnalyzer.cs" />
+    <Compile Include="Naming\AsyncMethodNameFix.cs" />
+    <Compile Include="SyntaxNodeAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +131,7 @@
       <Name>RoslynDiagnostics.Logic</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

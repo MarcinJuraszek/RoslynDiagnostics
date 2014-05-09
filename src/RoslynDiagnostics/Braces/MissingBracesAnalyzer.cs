@@ -9,7 +9,7 @@ namespace RoslynDiagnostics.Braces
 {
     [DiagnosticAnalyzer]
     [ExportDiagnosticAnalyzer(DiagnosticId, LanguageNames.CSharp)]
-    class MissingBracesAnalyzer : SyntaxNodexAnalyzer
+    class MissingBracesAnalyzer : SyntaxNodeAnalyzer
     {
         internal const string DiagnosticId = "MissingBracesAnalyzer";
         internal const string Description = "Add missing braces.";
