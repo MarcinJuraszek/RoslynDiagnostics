@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 using System;
 using System.Threading;
 
-namespace RoslynDiagnostics.Braces
+namespace RoslynDiagnostics.Statements
 {
     [DiagnosticAnalyzer]
     [ExportDiagnosticAnalyzer(DiagnosticId, LanguageNames.CSharp)]
@@ -14,7 +14,7 @@ namespace RoslynDiagnostics.Braces
         internal const string DiagnosticId = "MissingBracesAnalyzer";
         internal const string Description = "Add missing braces.";
         internal const string MessageFormat = "Add missing braces.";
-        internal const string Category = "Braces";
+        internal const string Category = "Statements";
 
         private static DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Description, MessageFormat, Category, DiagnosticSeverity.Warning);
 
@@ -58,7 +58,7 @@ namespace RoslynDiagnostics.Braces
 
         private void AddDiagnosticsIfNecessary(StatementSyntax statement, Func<Location> getLocation, Action<Location, object[]> addDiagnostic)
         {
-            if(statement != null && !statement.IsKind(SyntaxKind.Block))
+            if (statement != null && !statement.IsKind(SyntaxKind.Block) && !statement.IsKind(SyntaxKind.ReturnStatement))
             {
                 addDiagnostic(getLocation(), null);
             }

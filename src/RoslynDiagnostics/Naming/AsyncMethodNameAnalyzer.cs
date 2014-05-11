@@ -22,7 +22,8 @@ namespace RoslynDiagnostics.Naming
 
         public AsyncMethodNameAnalyzer()
             : base(Rule, SyntaxKind.MethodDeclaration)
-        { }
+        {
+        }
 
         public override void AnalyzeNode(SyntaxNode node, SemanticModel semanticModel, Action<Location, object[]> addDiagnostic, CancellationToken cancellationToken)
         {

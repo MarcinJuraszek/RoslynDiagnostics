@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RoslynDiagnostics.Braces
+namespace RoslynDiagnostics.Statements
 {
     [ExportCodeFixProvider(MissingBracesAnalyzer.DiagnosticId, LanguageNames.CSharp)]
     class MissingBracesFix : CodeFixProvider
@@ -22,6 +22,9 @@ namespace RoslynDiagnostics.Braces
         public async override Task<IEnumerable<CodeAction>> GetFixesAsync(Document document, TextSpan span, IEnumerable<Diagnostic> diagnostics, CancellationToken cancellationToken)
         {
             var root = await document.GetSyntaxRootAsync(cancellationToken);
+            if (root == null)
+                return null;
+
             var token = root.FindToken(span.Start);
 
             if (token.IsKind(SyntaxKind.IfKeyword))
@@ -42,7 +45,7 @@ namespace RoslynDiagnostics.Braces
                 return GetCodeActions(elseClause, newElseClause, root, document);
             }
 
-            if(token.IsKind(SyntaxKind.ForKeyword))
+            if (token.IsKind(SyntaxKind.ForKeyword))
             {
                 var forStatement = (ForStatementSyntax)token.Parent;
                 var newForStatement = forStatement
@@ -51,11 +54,11 @@ namespace RoslynDiagnostics.Braces
                 return GetCodeActions(forStatement, newForStatement, root, document);
             }
 
-            if(token.IsKind(SyntaxKind.WhileKeyword))
+            if (token.IsKind(SyntaxKind.WhileKeyword))
             {
                 // while can be used as part of DoStatement as well, so we should perform safe type-check
                 var whileStatement = token.Parent as WhileStatementSyntax;
-                if(whileStatement != null)
+                if (whileStatement != null)
                 {
                     var newWhileStatement = whileStatement
                         .WithStatement(SyntaxFactory.Block(whileStatement.Statement))
