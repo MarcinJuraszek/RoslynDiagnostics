@@ -6,10 +6,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Options;
 using Microsoft.CodeAnalysis.Rename;
 using Microsoft.CodeAnalysis.Text;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -50,8 +47,7 @@ namespace RoslynDiagnostics.Naming
 
             var options = solution.Workspace.GetOptions();
             var newName = token.Text + "Async";
-            var newSolution = await Renamer.RenameSymbolAsync(solution, symbol, newName, options);
-            return new[] { CodeAction.Create("Change method name to '" + newName + "'.", newSolution) };
+            return new[] {  CodeAction.Create("Change method name to '" + newName + "'.",  (ct) => Renamer.RenameSymbolAsync(solution, symbol, newName, options, ct))};
         }
     }
 }
